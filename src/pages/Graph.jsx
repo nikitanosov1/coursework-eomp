@@ -6,6 +6,7 @@ import {
   XAxis,
   Tooltip,
   YAxis,
+  Legend,
 } from "recharts";
 
 const data = [
@@ -46,24 +47,21 @@ export const Graph = () => {
         width={600}
         height={300}
         data={data}
-        margin={{ top: 5, right: 20, bottom: 5, left: 0 }}
+        margin={{ top: 0, right: 0, bottom: 0, left: 0 }}
       >
-        <Line type="monotone" dataKey="u" stroke="#8884d8" />
         <CartesianGrid stroke="#ccc" strokeDasharray="5 5" />
-        <XAxis
-          dataKey="r"
-          label={{ value: "r", position: "ins", offset: 0 }}
-          scale="band"
-        />
+        <XAxis dataKey="r" label={{ value: "r", offset: 0 }} scale="band" />
         <YAxis
-          dataKey="u"
           label={{
             value: "Temrerature U(r, t)",
             angle: -90,
-            position: "insideLeft",
           }}
         />
+
+        <Line type="monotone" dataKey="u" stroke="#8884d8" />
+
         <Tooltip />
+        <Legend />
       </LineChart>
     </div>
   );
