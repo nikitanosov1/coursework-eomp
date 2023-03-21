@@ -3,6 +3,7 @@ import React from "react";
 import Condition from "./../assets/condition.png";
 import Lens from "./../assets/lens.png";
 import Bog from "./../assets/bog.jpg";
+import { useNavigate } from "react-router-dom";
 
 const formItemLayout = {
   labelCol: {
@@ -15,8 +16,11 @@ const formItemLayout = {
   //   },
 };
 export const Home = () => {
+  const navigate = useNavigate();
+
   const onFinish = () => {
     console.log("УРААА");
+    navigate("/graph");
   };
 
   return (
