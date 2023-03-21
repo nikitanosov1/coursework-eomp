@@ -1,9 +1,11 @@
 import { Button, Form, Input } from "antd";
-import React from "react";
+import React, { useContext } from "react";
 import Condition from "./../assets/condition.png";
 import Lens from "./../assets/lens.png";
 import Bog from "./../assets/bog.jpg";
 import { useNavigate } from "react-router-dom";
+
+import { GraphsContext } from "./../App.js";
 
 const formItemLayout = {
   labelCol: {
@@ -17,6 +19,8 @@ const formItemLayout = {
 };
 export const Home = () => {
   const navigate = useNavigate();
+  const { test } = useContext(GraphsContext);
+  console.log(test);
 
   const onFinish = () => {
     console.log("УРААА");
