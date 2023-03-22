@@ -24,16 +24,17 @@ export const Home = () => {
 
   const onFinish = () => {
     console.log(params);
-    startCalculate({
-      k: 0.065,
-      c: 1.84,
-      α: 0.002,
-      l: 0.8,
-      T: 300,
-      R: 2,
-      β: 0.004,
-      n: 40
-    });
+    // startCalculate({
+    //   k: 0.065,
+    //   c: 1.84,
+    //   α: 0.002,
+    //   l: 0.8,
+    //   T: 1,
+    //   R: 2,
+    //   β: 0.004,
+    //   n: 45,
+    // });
+    startCalculate(params);
     navigate("/graph");
   };
 
@@ -69,30 +70,70 @@ export const Home = () => {
           <img src={Condition} alt="Condition" />
           <img src={Lens} alt="Lens" />
         </div>
-        {/* <Form.Item label="k" name="k">
-          <Input placeholder="Введите k" required name="k" onChange={changeInput}></Input>
+        <Form.Item label="k" name="k">
+          <Input
+            placeholder="Введите k"
+            required
+            name="k"
+            onChange={changeInput}
+          ></Input>
         </Form.Item>
         <Form.Item label="с" name="c">
-          <Input placeholder="Введите с" required name="c" onChange={changeInput}></Input>
+          <Input
+            placeholder="Введите с"
+            required
+            name="c"
+            onChange={changeInput}
+          ></Input>
         </Form.Item>
         <Form.Item label="α" name="α">
-          <Input placeholder="Введите α" required name="α" onChange={changeInput}></Input>
+          <Input
+            placeholder="Введите α"
+            required
+            name="α"
+            onChange={changeInput}
+          ></Input>
         </Form.Item>
         <Form.Item label="l" name="l">
-          <Input placeholder="Введите l" required name="l" onChange={changeInput}></Input>
+          <Input
+            placeholder="Введите l"
+            required
+            name="l"
+            onChange={changeInput}
+          ></Input>
         </Form.Item>
         <Form.Item label="T" name="T">
-          <Input placeholder="Введите T" required name="T" onChange={changeInput}></Input>
+          <Input
+            placeholder="Введите T"
+            required
+            name="T"
+            onChange={changeInput}
+          ></Input>
         </Form.Item>
         <Form.Item label="R" name="R">
-          <Input placeholder="Введите R" required name="R" onChange={changeInput}></Input>
+          <Input
+            placeholder="Введите R"
+            required
+            name="R"
+            onChange={changeInput}
+          ></Input>
         </Form.Item>
         <Form.Item label="β" name="β">
-          <Input placeholder="Введите β" required name="β" onChange={changeInput}></Input>
+          <Input
+            placeholder="Введите β"
+            required
+            name="β"
+            onChange={changeInput}
+          ></Input>
         </Form.Item>
         <Form.Item label="n" name="n">
-          <Input placeholder="Введите кол-во членов ряда" required name="n" onChange={changeInput}></Input>
-        </Form.Item> */}
+          <Input
+            placeholder="Введите кол-во членов ряда"
+            required
+            name="n"
+            onChange={changeInput}
+          ></Input>
+        </Form.Item>
 
         <Form.Item>
           <Button block type="primary" htmlType="submit">

@@ -152,6 +152,14 @@
   margin-bottom: 1rem;
 }
 
+.mt-4 {
+  margin-top: 1rem;
+}
+
+.mt-8 {
+  margin-top: 2rem;
+}
+
 .block {
   display: block;
 }
@@ -183,6 +191,11 @@
 .bg-white {
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+}
+
+.bg-\[\#132737\] {
+  --tw-bg-opacity: 1;
+  background-color: rgb(19 39 55 / var(--tw-bg-opacity));
 }
 
 .bg-opacity-50 {

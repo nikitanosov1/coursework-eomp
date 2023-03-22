@@ -35,6 +35,9 @@ let R = 0;
 let β = 0;
 let n = 0;
 
+const countR = 21;
+const countT = 10;
+
 const setParameters = (params) => {
   k = params.k;
   c = params.c;
@@ -55,15 +58,21 @@ export const getGraphArray = () => {
 export const startCalculate = (params) => {
   setParameters(params);
   result = [];
+
   let r = 0;
-  const countR = 100;
-  const t = 200;
-  while (r < R) {
-    result.push({
-      r: r.toFixed(3),
-      u: U(r, t, n),
-    });
-    r += R / countR;
+  while (r <= R + 0.001) {
+    let t = 0;
+    let numberOfT = 0;
+    const objectForPush = {
+      r: r.toFixed(2),
+    };
+    while (t <= T) {
+      objectForPush[`t${numberOfT} = ${t.toFixed(2)}`] = U(r, t);
+      t += T / countT;
+      numberOfT++;
+    }
+    result.push(objectForPush);
+    r += R / (countR - 1);
   }
 };
 
