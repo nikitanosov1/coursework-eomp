@@ -1,10 +1,10 @@
 import { Button, Form, Input } from "antd";
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import Condition from "./../assets/condition.png";
 import Lens from "./../assets/lens.png";
 import Bog from "./../assets/bog.jpg";
 import { useNavigate } from "react-router-dom";
-
+import { setParameters } from "./../util/util.js";
 import { GraphsContext } from "./../App.js";
 
 const formItemLayout = {
@@ -20,11 +20,22 @@ const formItemLayout = {
 export const Home = () => {
   const navigate = useNavigate();
   const { test } = useContext(GraphsContext);
-  console.log(test);
+  const [params, setParams] = useState({});
 
   const onFinish = () => {
-    console.log("УРААА");
+    console.log(params);
+    setParameters(() => params);
     navigate("/graph");
+  };
+
+  const changeInput = (event) => {
+    event.persist();
+    setParams((prev) => {
+      return {
+        ...prev,
+        [event.target.name]: event.target.value,
+      };
+    });
   };
 
   return (
@@ -50,25 +61,28 @@ export const Home = () => {
           <img src={Lens} alt="Lens" />
         </div>
         <Form.Item label="k" name="k">
-          <Input placeholder="Введите k" required></Input>
+          <Input placeholder="Введите k" required name="k" onChange={changeInput}></Input>
         </Form.Item>
         <Form.Item label="с" name="c">
-          <Input placeholder="Введите с" required></Input>
+          <Input placeholder="Введите с" required name="c" onChange={changeInput}></Input>
         </Form.Item>
         <Form.Item label="α" name="α">
-          <Input placeholder="Введите α" required></Input>
+          <Input placeholder="Введите α" required name="α" onChange={changeInput}></Input>
         </Form.Item>
         <Form.Item label="l" name="l">
-          <Input placeholder="Введите l" required></Input>
+          <Input placeholder="Введите l" required name="l" onChange={changeInput}></Input>
         </Form.Item>
         <Form.Item label="T" name="T">
-          <Input placeholder="Введите T" required></Input>
+          <Input placeholder="Введите T" required name="T" onChange={changeInput}></Input>
         </Form.Item>
         <Form.Item label="R" name="R">
-          <Input placeholder="Введите R" required></Input>
+          <Input placeholder="Введите R" required name="R" onChange={changeInput}></Input>
         </Form.Item>
         <Form.Item label="β" name="β">
-          <Input placeholder="Введите β" required></Input>
+          <Input placeholder="Введите β" required name="β" onChange={changeInput}></Input>
+        </Form.Item>
+        <Form.Item label="n" name="n">
+          <Input placeholder="Введите кол-во членов ряда" required name="n" onChange={changeInput}></Input>
         </Form.Item>
 
         <Form.Item>
