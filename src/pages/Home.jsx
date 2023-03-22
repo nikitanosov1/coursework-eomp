@@ -4,7 +4,7 @@ import Condition from "./../assets/condition.png";
 import Lens from "./../assets/lens.png";
 import Bog from "./../assets/bog.jpg";
 import { useNavigate } from "react-router-dom";
-import { setParameters } from "./../util/util.js";
+import { startCalculate } from "./../util/util.js";
 import { GraphsContext } from "./../App.js";
 
 const formItemLayout = {
@@ -24,7 +24,16 @@ export const Home = () => {
 
   const onFinish = () => {
     console.log(params);
-    setParameters(() => params);
+    startCalculate({
+      k: 0.065,
+      c: 1.84,
+      α: 0.002,
+      l: 0.8,
+      T: 300,
+      R: 2,
+      β: 0.004,
+      n: 40
+    });
     navigate("/graph");
   };
 
@@ -33,7 +42,7 @@ export const Home = () => {
     setParams((prev) => {
       return {
         ...prev,
-        [event.target.name]: event.target.value,
+        [event.target.name]: parseFloat(event.target.value),
       };
     });
   };
@@ -60,7 +69,7 @@ export const Home = () => {
           <img src={Condition} alt="Condition" />
           <img src={Lens} alt="Lens" />
         </div>
-        <Form.Item label="k" name="k">
+        {/* <Form.Item label="k" name="k">
           <Input placeholder="Введите k" required name="k" onChange={changeInput}></Input>
         </Form.Item>
         <Form.Item label="с" name="c">
@@ -83,7 +92,7 @@ export const Home = () => {
         </Form.Item>
         <Form.Item label="n" name="n">
           <Input placeholder="Введите кол-во членов ряда" required name="n" onChange={changeInput}></Input>
-        </Form.Item>
+        </Form.Item> */}
 
         <Form.Item>
           <Button block type="primary" htmlType="submit">
