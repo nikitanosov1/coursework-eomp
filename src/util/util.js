@@ -57,7 +57,7 @@ export const startCalculate = (params) => {
   result = [];
   let r = 0;
   const countR = 100;
-  const t = 60;
+  const t = 200;
   while (r < R) {
     result.push({
       r: r.toFixed(3),
