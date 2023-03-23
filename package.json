@@ -2,6 +2,7 @@
   "name": "coursework-eomp",
   "version": "0.1.0",
   "private": false,
+  "homepage": "https://nikitanosov1.github.io/coursework-eomp/",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
@@ -17,7 +18,10 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "tailwind": "npx tailwindcss -i ./src/index.css -o ./output.css --watch"
+    "tailwind": "npx tailwindcss -i ./src/index.css -o ./output.css --watch",
+    "build": "react-scripts build",
+    "deploy": "gh-pages -d build",
+    "predeploy": "npm run build"
   },
   "eslintConfig": {
     "extends": [
