@@ -5,7 +5,6 @@ import Lens from "./../assets/lens.png";
 import Bog from "./../assets/bog.jpg";
 import { useNavigate } from "react-router-dom";
 import { startCalculate } from "./../util/util.js";
-import { GraphsContext } from "./../App.js";
 
 const formItemLayout = {
   labelCol: {
@@ -19,7 +18,6 @@ const formItemLayout = {
 };
 export const Home = () => {
   const navigate = useNavigate();
-  const { test } = useContext(GraphsContext);
   const [params, setParams] = useState({
     k: 0.065,
     c: 1.84,
@@ -32,7 +30,6 @@ export const Home = () => {
   });
 
   const onFinish = () => {
-    console.log(params);
     // startCalculate({
     //   k: 0.065,
     //   c: 1.84,
