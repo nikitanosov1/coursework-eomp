@@ -36,7 +36,7 @@ let β = 0;
 let n = 0;
 
 const countR = 21;
-const countT = 10;
+const countT = 6;
 
 const setParameters = (params) => {
   k = params.k;

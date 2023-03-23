@@ -20,7 +20,16 @@ const formItemLayout = {
 export const Home = () => {
   const navigate = useNavigate();
   const { test } = useContext(GraphsContext);
-  const [params, setParams] = useState({});
+  const [params, setParams] = useState({
+    k: 0.065,
+    c: 1.84,
+    α: 0.002,
+    l: 0.8,
+    T: 1,
+    R: 2,
+    β: 0.004,
+    n: 40,
+  });
 
   const onFinish = () => {
     console.log(params);
@@ -62,6 +71,7 @@ export const Home = () => {
         onFinish={onFinish}
         layout="horizontal"
         className="shadow-lg p-4 m-2 bg-white bg-opacity-50"
+        initialValues={params}
       >
         <div className="flex flex-col w-80 my-4">
           <div className="mb-4">
