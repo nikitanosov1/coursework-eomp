@@ -50,7 +50,7 @@ export const Graph = () => {
   return (
     <div className="flex justify-center items-center min-h-screen bg-[#132737]">
       <Link to="/home" className="absolute left-8 top-8">
-        <img src={ReturnButton} className="w-6 h-6"></img>
+        <img src={ReturnButton} alt="Вернуться назад" className="w-6 h-6"></img>
       </Link>
       <LineChart width={1200} height={600} data={graphArray}>
         <CartesianGrid stroke="#ccc" strokeDasharray="2 2"></CartesianGrid>
