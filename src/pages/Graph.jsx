@@ -33,8 +33,6 @@ export const Graph = () => {
     setLabels((prev) => newLabels);
   }, []);
 
-  console.log(graphArray);
-
   // const getHexRandomColor = () => {
   //   return "#" + ((Math.random() * 0xffffff) << 0).toString(16);
   // };
@@ -76,6 +74,7 @@ export const Graph = () => {
         ></Legend>
         {labels.map((label, index) => (
           <Line
+            key={label}
             type="monotone"
             dataKey={label}
             stroke={getGradientHexColorByIndex(index)}
