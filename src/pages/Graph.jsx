@@ -35,9 +35,9 @@ export const Graph = () => {
 
   console.log(graphArray);
 
-  const getHexRandomColor = () => {
-    return "#" + ((Math.random() * 0xffffff) << 0).toString(16);
-  };
+  // const getHexRandomColor = () => {
+  //   return "#" + ((Math.random() * 0xffffff) << 0).toString(16);
+  // };
 
   const getGradientHexColorByIndex = (index) => {
     if (labels.length === 0) return;

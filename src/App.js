@@ -9,7 +9,7 @@ export const GraphsContext = React.createContext();
 function App() {
   return (
     <div className="App">
-      <GraphsContext.Provider value={{ test: "qwe" }}>
+      <GraphsContext.Provider value={{ graph: [] }}>
         <Routes>
           <Route path="/home" element={<Home />}></Route>
           <Route path="/graph" element={<Graph />}></Route>
