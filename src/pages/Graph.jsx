@@ -39,6 +39,14 @@ export const Graph = () => {
     return "#" + ((Math.random() * 0xffffff) << 0).toString(16);
   };
 
+  const getGradientHexColorByIndex = (index) => {
+    if (labels.length === 0) return;
+    return (
+      "#FF00" +
+      parseInt((1 - parseFloat(index / labels.length)) * 0xff).toString(16)
+    );
+  };
+
   return (
     <div className="flex justify-center items-center min-h-screen bg-[#132737]">
       <Link to="/home" className="absolute left-8 top-8">
@@ -66,11 +74,11 @@ export const Graph = () => {
             paddingTop: "40px",
           }}
         ></Legend>
-        {labels.map((label) => (
+        {labels.map((label, index) => (
           <Line
             type="monotone"
             dataKey={label}
-            stroke={getHexRandomColor()}
+            stroke={getGradientHexColorByIndex(index)}
             strokeWidth="5"
             dot={{ fill: "#2e4355", stroke: "#8884d8", strokeWidth: 2, r: 0 }}
             activeDot={{
