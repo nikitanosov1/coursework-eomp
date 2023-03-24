@@ -180,12 +180,12 @@
   min-height: 100vh;
 }
 
-.w-80 {
-  width: 20rem;
-}
-
 .w-6 {
   width: 1.5rem;
+}
+
+.w-80 {
+  width: 20rem;
 }
 
 .flex-col {
