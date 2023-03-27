@@ -176,8 +176,16 @@
   height: 1.5rem;
 }
 
+.h-1\/2 {
+  height: 50%;
+}
+
 .min-h-screen {
   min-height: 100vh;
+}
+
+.min-h-\[1300px\] {
+  min-height: 1300px;
 }
 
 .w-6 {
@@ -186,6 +194,14 @@
 
 .w-80 {
   width: 20rem;
+}
+
+.w-1\/2 {
+  width: 50%;
+}
+
+.min-w-\[1300px\] {
+  min-width: 1300px;
 }
 
 .flex-col {
@@ -198,6 +214,10 @@
 
 .justify-center {
   justify-content: center;
+}
+
+.gap-10 {
+  gap: 2.5rem;
 }
 
 .bg-\[\#132737\] {
@@ -216,6 +236,16 @@
 
 .p-4 {
   padding: 1rem;
+}
+
+.py-20 {
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+}
+
+.px-10 {
+  padding-left: 2.5rem;
+  padding-right: 2.5rem;
 }
 
 .shadow-lg {

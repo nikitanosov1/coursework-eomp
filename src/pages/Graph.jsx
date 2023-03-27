@@ -8,49 +8,62 @@ import {
   YAxis,
   Legend,
 } from "recharts";
-import { getGraphArray } from "./../util/util.js";
+import { getFirstGraphArray, getSecondGraphArray } from "./../util/util.js";
 import { Link } from "react-router-dom";
 import ReturnButton from "./../assets/back-button.png";
 
 export const Graph = () => {
-  const [graphArray, setGraphArray] = useState([]);
-  const [labels, setLabels] = useState([]);
+  const [firstGraph, setFirstGraph] = useState([]);
+  const [secondGraph, setSecondGraph] = useState([]);
+  const [labelsForFirstGraph, setLabelsForFirstGraph] = useState([]);
+  const [labelsForSecondGraph, setLabelsForSecondGraph] = useState([]);
 
   useEffect(() => {
-    const newGraph = getGraphArray();
-    setGraphArray((prev) => newGraph);
+    const newFirstGraph = getFirstGraphArray();
+    const newSecondGraph = getSecondGraphArray();
+    setFirstGraph((prev) => newFirstGraph);
+    setSecondGraph((prev) => newSecondGraph);
 
-    if (newGraph.length < 1) {
+    if (newFirstGraph.length < 1 || newSecondGraph.length < 1) {
       return;
     }
 
-    const newLabels = [];
-    for (const key in newGraph[0]) {
+    const newFirstLabels = [];
+    for (const key in newFirstGraph[0]) {
       if (key !== "r") {
-        newLabels.push(key);
+        newFirstLabels.push(key);
       }
     }
-    setLabels((prev) => newLabels);
+    setLabelsForFirstGraph((prev) => newFirstLabels);
+
+    const newSecondLabels = [];
+    for (const key in newSecondGraph[0]) {
+      if (key !== "t") {
+        newSecondLabels.push(key);
+      }
+    }
+    setLabelsForSecondGraph((prev) => newSecondLabels);
   }, []);
 
   // const getHexRandomColor = () => {
   //   return "#" + ((Math.random() * 0xffffff) << 0).toString(16);
   // };
 
-  const getGradientHexColorByIndex = (index) => {
-    if (labels.length === 0) return;
+  const getGradientHexColorByIndex = (index, len) => {
+    if (len === 0) return;
     return (
-      "#FF00" +
-      parseInt((1 - parseFloat(index / labels.length)) * 0xff).toString(16)
+      "#FF00" + parseInt((1 - parseFloat(index / len)) * 0xff).toString(16)
     );
   };
 
   return (
-    <div className="flex justify-center items-center min-h-screen bg-[#132737]">
+    <div className="min-w-[1300px] min-h-[1300px] flex flex-col gap-10 py-20 px-10 justify-center items-center bg-[#132737]">
       <Link to="/home" className="absolute left-8 top-8">
         <img src={ReturnButton} alt="Вернуться назад" className="w-6 h-6"></img>
       </Link>
-      <LineChart width={1200} height={600} data={graphArray}>
+
+      {/* FIRST GRAPH */}
+      <LineChart width={1200} height={600} data={firstGraph}>
         <CartesianGrid stroke="#ccc" strokeDasharray="2 2"></CartesianGrid>
         <XAxis
           dataKey="r"
@@ -72,12 +85,59 @@ export const Graph = () => {
             paddingTop: "40px",
           }}
         ></Legend>
-        {labels.map((label, index) => (
+        {labelsForFirstGraph.map((label, index) => (
           <Line
             key={label}
             type="monotone"
             dataKey={label}
-            stroke={getGradientHexColorByIndex(index)}
+            stroke={getGradientHexColorByIndex(
+              index,
+              labelsForFirstGraph.length
+            )}
+            strokeWidth="5"
+            dot={{ fill: "#2e4355", stroke: "#8884d8", strokeWidth: 2, r: 0 }}
+            activeDot={{
+              fill: "#2e4355",
+              stroke: "#8884d8",
+              strokeWidth: 5,
+              r: 2,
+            }}
+          />
+        ))}
+      </LineChart>
+
+      {/* SECOND GRAPH */}
+      <LineChart width={1200} height={600} data={secondGraph}>
+        <CartesianGrid stroke="#ccc" strokeDasharray="2 2"></CartesianGrid>
+        <XAxis
+          dataKey="t"
+          label={{
+            value: "Время t",
+            position: "bottom",
+            offset: 3,
+          }}
+        ></XAxis>
+        <YAxis
+          label={{
+            value: "Температура U(r, t)",
+            angle: -90,
+          }}
+        ></YAxis>
+        <Tooltip></Tooltip>
+        <Legend
+          wrapperStyle={{
+            paddingTop: "40px",
+          }}
+        ></Legend>
+        {labelsForSecondGraph.map((label, index) => (
+          <Line
+            key={label}
+            type="monotone"
+            dataKey={label}
+            stroke={getGradientHexColorByIndex(
+              index,
+              labelsForSecondGraph.length
+            )}
             strokeWidth="5"
             dot={{ fill: "#2e4355", stroke: "#8884d8", strokeWidth: 2, r: 0 }}
             activeDot={{

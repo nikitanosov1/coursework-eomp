@@ -110,9 +110,6 @@ let R = 0;
 let β = 0;
 let n = 0;
 
-const countR = 21;
-const countT = 6;
-
 const setParameters = (params) => {
   k = params.k;
   c = params.c;
@@ -124,15 +121,24 @@ const setParameters = (params) => {
   n = params.n;
 };
 
-let result = [];
+const countX = 21;
+const countY = 6;
 
-export const getGraphArray = () => {
-  return result;
+let firstGraph = [];
+let secondGraph = [];
+
+export const getFirstGraphArray = () => {
+  return firstGraph;
+};
+
+export const getSecondGraphArray = () => {
+  return secondGraph;
 };
 
 export const startCalculate = (params) => {
   setParameters(params);
-  result = [];
+  firstGraph = [];
+  secondGraph = [];
 
   let r = 0;
   while (r <= R + 0.001) {
@@ -143,24 +149,27 @@ export const startCalculate = (params) => {
     };
     while (t <= T) {
       objectForPush[`t${numberOfT} = ${t.toFixed(2)}`] = U(r, t);
-      t += T / countT;
+      t += T / countY;
       numberOfT++;
     }
-    result.push(objectForPush);
-    r += R / (countR - 1);
+    firstGraph.push(objectForPush);
+    r += R / (countX - 1);
   }
 
-  tempFunc();
-};
-
-const tempFunc = () => {
-  for (let m of μ) {
-    const h = Math.abs(J_n(m, 0));
-    console.log("m = " + m);
-    console.log("|J_0(m)| = " + h);
-    const temp = m / 4 + (m * m) / 8 - (Math.PI * Math.PI) / 128;
-    console.log("Оценка снизу = " + temp);
-    console.log(">=? " + (h >= temp));
+  let t = 0;
+  while (t <= T + 0.001) {
+    let r = 0;
+    let numberOfR = 0;
+    const objectForPush = {
+      t: t.toFixed(2),
+    };
+    while (r <= R) {
+      objectForPush[`r${numberOfR} = ${r.toFixed(2)}`] = U(r, t);
+      r += R / countY;
+      numberOfR++;
+    }
+    secondGraph.push(objectForPush);
+    t += T / (countX - 1);
   }
 };
 
