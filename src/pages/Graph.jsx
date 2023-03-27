@@ -57,7 +57,7 @@ export const Graph = () => {
   };
 
   return (
-    <div className="min-w-[1300px] min-h-[1300px] flex flex-col gap-10 py-20 px-10 justify-center items-center bg-[#132737]">
+    <div className="min-w-[1300px] min-h-screen flex flex-col gap-10 py-20 px-10 justify-center items-center bg-[#132737]">
       <Link to="/home" className="absolute left-8 top-8">
         <img src={ReturnButton} alt="Вернуться назад" className="w-6 h-6"></img>
       </Link>
