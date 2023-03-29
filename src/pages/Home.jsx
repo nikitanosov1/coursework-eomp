@@ -41,6 +41,7 @@ export const Home = () => {
     //   n: 45,
     // });
     startCalculate(params);
+
     navigate("/graph");
   };
 

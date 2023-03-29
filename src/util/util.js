@@ -1,4 +1,5 @@
 const μ = [
+  undefined,
   3.831705970207512468306276787188835442066192627,
   7.015586669815618847678706515580415725708007812,
   10.173468135062721628969484299886971712112426758,
@@ -174,13 +175,21 @@ export const startCalculate = (params) => {
 };
 
 const J_n = (x, N) => {
-  let result = Math.pow(x / 2, N);
+  let result = 0;
   for (let k = 0; k < n; k++) {
-    result +=
-      (Math.pow(-1, k) * Math.pow(x / 2, 2 * k)) /
-      factorial(k) /
-      factorial(N + k);
+    let temp = Math.pow(-1, k) * Math.pow(x / 2, 2 * k);
+
+    for (let j = 2; j <= k; j++) {
+      temp /= j;
+      temp /= j;
+    }
+    for (let j = k + 1; j <= k + N; j++) {
+      temp /= j;
+    }
+
+    result += temp;
   }
+  result *= Math.pow(x / 2, N);
   return result;
 };
 
@@ -189,7 +198,11 @@ const λ = (i) => {
 };
 
 const B = (i) => {
-  return (600 * β * J_n(μ[i], 1)) / (Math.pow(J_n(μ[i], 0), 2) * μ[i]);
+  // return (600 * β * J_n(μ[i], 1)) / (Math.pow(J_n(μ[i], 0), 2) * μ[i]);
+  return (
+    (0.4 * β * 300 * J_n((μ[i] * 0.2) / R, 1)) /
+    (R * Math.pow(J_n(μ[i], 0), 2) * μ[i])
+  );
 };
 
 const U = (r, t) => {
