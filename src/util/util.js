@@ -1,3 +1,5 @@
+import { besselj } from "bessel";
+
 const μ = [
   undefined,
   3.831705970207512468306276787188835442066192627,
@@ -175,22 +177,24 @@ export const startCalculate = (params) => {
 };
 
 const J_n = (x, N) => {
-  let result = 0;
-  for (let k = 0; k < n; k++) {
-    let temp = Math.pow(-1, k) * Math.pow(x / 2, 2 * k);
+  return besselj(x, N);
+  // let result = 0;
+  // for (let k = 0; k < n; k++) {
+  //   let temp = Math.pow(-1, k) * Math.pow(x / 2, 2 * k);
 
-    for (let j = 2; j <= k; j++) {
-      temp /= j;
-      temp /= j;
-    }
-    for (let j = k + 1; j <= k + N; j++) {
-      temp /= j;
-    }
+  //   for (let j = 2; j <= k; j++) {
+  //     temp /= j;
+  //     temp /= j;
+  //   }
+  //   for (let j = k + 1; j <= k + N; j++) {
+  //     temp /= j;
+  //   }
 
-    result += temp;
-  }
-  result *= Math.pow(x / 2, N);
-  return result;
+  //   result += temp;
+  // }
+  // result *= Math.pow(x / 2, N);
+  // console.log(`J_n(${x}, ${N}) = ${result}`);
+  // return result;
 };
 
 const λ = (i) => {
@@ -198,7 +202,6 @@ const λ = (i) => {
 };
 
 const B = (i) => {
-  // return (600 * β * J_n(μ[i], 1)) / (Math.pow(J_n(μ[i], 0), 2) * μ[i]);
   return (
     (0.4 * β * 300 * J_n((μ[i] * 0.2) / R, 1)) /
     (R * Math.pow(J_n(μ[i], 0), 2) * μ[i])
@@ -208,8 +211,9 @@ const B = (i) => {
 const U = (r, t) => {
   let result = 0;
   for (let i = 1; i <= n; i++) {
+    const lambda = λ(i);
     result +=
-      ((B(i) * (Math.pow(Math.E, (λ(i) * t) / c) - 1)) / λ(i)) *
+      ((B(i) * (Math.pow(Math.E, (lambda * t) / c) - 1)) / lambda) *
       J_n((μ[i] * r) / R, 0);
   }
   return result;

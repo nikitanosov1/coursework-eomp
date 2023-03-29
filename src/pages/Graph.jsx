@@ -94,7 +94,7 @@ export const Graph = () => {
               index,
               labelsForFirstGraph.length
             )}
-            strokeWidth="5"
+            strokeWidth="3"
             dot={{ fill: "#2e4355", stroke: "#8884d8", strokeWidth: 2, r: 0 }}
             activeDot={{
               fill: "#2e4355",
@@ -138,7 +138,7 @@ export const Graph = () => {
               index,
               labelsForSecondGraph.length
             )}
-            strokeWidth="5"
+            strokeWidth="3"
             dot={{ fill: "#2e4355", stroke: "#8884d8", strokeWidth: 2, r: 0 }}
             activeDot={{
               fill: "#2e4355",

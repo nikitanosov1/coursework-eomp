@@ -26,7 +26,7 @@ export const Home = () => {
     T: 1,
     R: 2,
     β: 0.004,
-    n: 40,
+    n: 80,
   });
 
   const onFinish = () => {
