@@ -74,6 +74,7 @@ export const Graph = () => {
           }}
         ></XAxis>
         <YAxis
+          width={120}
           label={{
             value: "Температура U(r, t)",
             angle: -90,
@@ -118,6 +119,7 @@ export const Graph = () => {
           }}
         ></XAxis>
         <YAxis
+          width={120}
           label={{
             value: "Температура U(r, t)",
             angle: -90,

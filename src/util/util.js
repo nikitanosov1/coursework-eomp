@@ -174,6 +174,87 @@ export const startCalculate = (params) => {
     secondGraph.push(objectForPush);
     t += T / (countX - 1);
   }
+
+  test(0, 1);
+};
+
+const test = (r, t) => {
+  let f1 = true;
+  let f2 = true;
+  let f3 = true;
+  let f4 = true;
+  let f5 = true;
+  let f6 = true;
+  let f7 = true;
+  for (let i = 1; i <= 10000; i++) {
+    //console.log(Ф(i));
+    if (Ф(i) <= 0.1 && f1) {
+      console.log(`f1 ${i}`);
+      f1 = false;
+    }
+    if (Ф(i) <= 0.01 && f2) {
+      console.log(`f2 ${i}`);
+      f2 = false;
+    }
+    if (Ф(i) <= 0.001 && f3) {
+      console.log(i);
+      f3 = false;
+    }
+    if (Ф(i) <= 0.0001 && f4) {
+      console.log(i);
+      f4 = false;
+    }
+    if (Ф(i) <= 0.00001 && f5) {
+      console.log(i);
+      f5 = false;
+    }
+    if (Ф(i) <= 0.000001 && f6) {
+      console.log(i);
+      f6 = false;
+    }
+    if (Ф(i) <= 0.0000001 && f7) {
+      console.log(i);
+      f7 = false;
+    }
+  }
+
+  let result = 0;
+  for (let i = 1; i <= 63; i++) {
+    const lambda = λ(i);
+    const temp =
+      ((B(i) * (Math.pow(Math.E, (lambda * t) / c) - 1)) / lambda) *
+      J_n((μ[i] * r) / R, 0);
+    result += temp;
+  }
+
+  let prevResult = result;
+  for (let i = 1; i <= 100; i++) {
+    const lambda = λ(i);
+    const temp =
+      ((B(i) * (Math.pow(Math.E, (lambda * t) / c) - 1)) / lambda) *
+      J_n((μ[i] * r) / R, 0);
+    result -= temp;
+
+    // console.log(`qqwqw  ${Math.abs(prevResult - result)}`);
+    if (Math.abs(prevResult - result) < 0.0001) {
+      console.log(`Для e=0.0001   Nэкс = ${i}`);
+      break;
+    }
+    prevResult = result;
+  }
+
+  //return result;
+};
+
+const Ф = (N) => {
+  return (
+    200 / Math.sqrt(13) -
+    (400 *
+      Math.atan(
+        (4 * Math.sqrt(13) * Math.PI * N - Math.sqrt(13) * Math.PI) / 8
+      )) /
+      (Math.sqrt(13) * Math.PI)
+  );
 };
 
 const J_n = (x, N) => {

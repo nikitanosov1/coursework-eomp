@@ -164,6 +164,10 @@
   margin-bottom: 1rem;
 }
 
+.ml-\[60px\] {
+  margin-left: 60px;
+}
+
 .block {
   display: block;
 }
