@@ -1182,7 +1182,11 @@ const λ = (i) => {
 
 const B = (i) => {
   if (i === 0) {
-    return (6 * β) / 2;
+    if (R >= 0.2) {
+      return (12 * β) / Math.pow(R, 2);
+    } else {
+      return 300 * β;
+    }
   }
   return (
     (120 * β * J_n((μ[i] * 0.2) / R, 1)) /
