@@ -66,16 +66,20 @@ export const Graph = () => {
       <LineChart width={1200} height={600} data={firstGraph}>
         <CartesianGrid stroke="#ccc" strokeDasharray="2 2"></CartesianGrid>
         <XAxis
+          tick={{ fill: "#FFFFFF" }}
           dataKey="r"
           label={{
+            fill: "#FFFFFF",
             value: "Радиус r",
             position: "bottom",
             offset: 3,
           }}
         ></XAxis>
         <YAxis
+          tick={{ fill: "#FFFFFF" }}
           width={120}
           label={{
+            fill: "#FFFFFF",
             value: "Температура U(r, t)",
             angle: -90,
           }}
@@ -111,16 +115,20 @@ export const Graph = () => {
       <LineChart width={1200} height={600} data={secondGraph}>
         <CartesianGrid stroke="#ccc" strokeDasharray="2 2"></CartesianGrid>
         <XAxis
+          tick={{ fill: "#FFFFFF" }}
           dataKey="t"
           label={{
+            fill: "#FFFFFF",
             value: "Время t",
             position: "bottom",
             offset: 3,
           }}
         ></XAxis>
         <YAxis
+          tick={{ fill: "#FFFFFF" }}
           width={120}
           label={{
+            fill: "#FFFFFF",
             value: "Температура U(r, t)",
             angle: -90,
           }}

@@ -1162,18 +1162,87 @@ const test = (r, t) => {
     }
   }
 
+  // ------------------------
+
+  // let f1 = true;
+  // let f2 = true;
+  // let f3 = true;
+  // let f4 = true;
+  // let f5 = true;
+  // let f6 = true;
+  // let f7 = true;
+  // for (let i = 1; i <= 3000000; i++) {
+  //   //console.log(Ф(i));
+  //   if (Ф(i) <= 0.1 && f1) {
+  //     console.log(`f1 ${i}`);
+  //     f1 = false;
+  //   }
+  //   if (Ф(i) <= 0.01 && f2) {
+  //     console.log(`f2 ${i}`);
+  //     f2 = false;
+  //   }
+  //   if (Ф(i) <= 0.001 && f3) {
+  //     console.log(`f3 ${i}`);
+  //     f3 = false;
+  //   }
+  //   if (Ф(i) <= 0.0001 && f4) {
+  //     console.log(`f4 ${i}`);
+  //     f4 = false;
+  //   }
+  //   if (Ф(i) <= 0.00001 && f5) {
+  //     console.log(`f5 ${i}`);
+  //     f5 = false;
+  //   }
+  //   if (Ф(i) <= 0.000001 && f6) {
+  //     console.log(`f6 ${i}`);
+  //     f6 = false;
+  //   }
+  //   if (Ф(i) <= 0.0000001 && f7) {
+  //     console.log(`f7 ${i}`);
+  //     f7 = false;
+  //   }
+  // }
+
+  // const teorN = 7;
+  // const epss = 0.001;
+
+  // let result = 0;
+  // for (let i = 1; i <= teorN; i++) {
+  //   const lambda = λ(i);
+  //   const temp =
+  //     ((B(i) * (Math.pow(Math.E, (lambda * t) / c) - 1)) / lambda) *
+  //     J_n((μ[i] * r) / R, 0);
+  //   result += temp;
+  // }
+
+  // let ideal = result;
+  // for (let i = teorN; i > 0; i--) {
+  //   const lambda = λ(i);
+  //   const temp =
+  //     ((B(i) * (Math.pow(Math.E, (lambda * t) / c) - 1)) / lambda) *
+  //     J_n((μ[i] * r) / R, 0);
+  //   result -= temp;
+
+  //   // console.log(`qqwqw  ${Math.abs(prevResult - result)}`);
+  //   if (Math.abs(result - ideal) > epss) {
+  //     console.log(`Для e=${epss}   Nэкс = ${i + 1}`);
+  //     break;
+  //   }
+  // }
+
   //return result;
 };
 
 const Ф = (N) => {
-  return (
-    200 / Math.sqrt(13) -
-    (400 *
-      Math.atan(
-        (4 * Math.sqrt(13) * Math.PI * N - Math.sqrt(13) * Math.PI) / 8
-      )) /
-      (Math.sqrt(13) * Math.PI)
-  );
+  return (60 * β * R) / (Math.PI * k * N);
+  // return (
+  //   200 / Math.sqrt(13) -
+  //   (400 *
+  //     Math.atan(
+  //       (4 * Math.sqrt(13) * Math.PI * N - Math.sqrt(13) * Math.PI) / 8
+  //     )) /
+  //     (Math.sqrt(13) * Math.PI)
+  // );
 };
 
 const J_n = (x, N) => {
