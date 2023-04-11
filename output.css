@@ -218,6 +218,31 @@
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
 }
 
+.bg-\[\#4551cb\] {
+  --tw-bg-opacity: 1;
+  background-color: rgb(69 81 203 / var(--tw-bg-opacity));
+}
+
+.bg-\[\#35a69f\] {
+  --tw-bg-opacity: 1;
+  background-color: rgb(53 166 159 / var(--tw-bg-opacity));
+}
+
+.bg-\[\#4550c3\] {
+  --tw-bg-opacity: 1;
+  background-color: rgb(69 80 195 / var(--tw-bg-opacity));
+}
+
+.bg-\[\#1b374e\] {
+  --tw-bg-opacity: 1;
+  background-color: rgb(27 55 78 / var(--tw-bg-opacity));
+}
+
+.bg-\[\#204768\] {
+  --tw-bg-opacity: 1;
+  background-color: rgb(32 71 104 / var(--tw-bg-opacity));
+}
+
 .bg-opacity-50 {
   --tw-bg-opacity: 0.5;
 }

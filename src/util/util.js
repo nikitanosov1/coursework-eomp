@@ -1063,7 +1063,7 @@ export const startCalculate = (params) => {
     let r = 0;
     let numberOfR = 0;
     const objectForPush = {
-      t: t.toFixed(2),
+      t: t.toFixed(1),
     };
     while (r <= R) {
       objectForPush[`r${numberOfR} = ${r.toFixed(2)}`] = U(r, t);
@@ -1073,8 +1073,8 @@ export const startCalculate = (params) => {
     secondGraph.push(objectForPush);
     t += T / (countX - 1);
   }
-  test(0, 1);
-  //test(0, 1);
+  // test(0, 1);
+  // test(0, 1);
   // test3(0, 1);
 };
 
@@ -1235,14 +1235,6 @@ const test = (r, t) => {
 
 const Ф = (N) => {
   return (60 * β * R) / (Math.PI * k * N);
-  // return (
-  //   200 / Math.sqrt(13) -
-  //   (400 *
-  //     Math.atan(
-  //       (4 * Math.sqrt(13) * Math.PI * N - Math.sqrt(13) * Math.PI) / 8
-  //     )) /
-  //     (Math.sqrt(13) * Math.PI)
-  // );
 };
 
 const J_n = (x, N) => {

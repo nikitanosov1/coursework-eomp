@@ -23,23 +23,13 @@ export const Home = () => {
     c: 1.84,
     α: 0.002,
     l: 0.8,
-    T: 1,
+    T: 300,
     R: 2,
     β: 0.004,
-    n: 80,
+    n: 200,
   });
 
   const onFinish = () => {
-    // startCalculate({
-    //   k: 0.065,
-    //   c: 1.84,
-    //   α: 0.002,
-    //   l: 0.8,
-    //   T: 1,
-    //   R: 2,
-    //   β: 0.004,
-    //   n: 45,
-    // });
     startCalculate(params);
 
     navigate("/graph");

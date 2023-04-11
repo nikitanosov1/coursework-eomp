@@ -68,17 +68,25 @@ export const Graph = () => {
         <XAxis
           tick={{ fill: "#FFFFFF" }}
           dataKey="r"
+          style={{
+            fontSize: 18, 
+          }}
           label={{
             fill: "#FFFFFF",
             value: "Радиус r",
             position: "bottom",
+            fontSize: 20, 
             offset: 3,
           }}
         ></XAxis>
         <YAxis
+          style={{
+            fontSize: 18, 
+          }}
           tick={{ fill: "#FFFFFF" }}
-          width={120}
+          width={150}
           label={{
+            fontSize: 20, 
             fill: "#FFFFFF",
             value: "Температура U(r, t)",
             angle: -90,
@@ -87,6 +95,7 @@ export const Graph = () => {
         <Tooltip></Tooltip>
         <Legend
           wrapperStyle={{
+            fontSize: 20, 
             paddingTop: "40px",
           }}
         ></Legend>
@@ -117,7 +126,11 @@ export const Graph = () => {
         <XAxis
           tick={{ fill: "#FFFFFF" }}
           dataKey="t"
+          style={{
+            fontSize: 18, 
+          }}
           label={{
+            fontSize: 20, 
             fill: "#FFFFFF",
             value: "Время t",
             position: "bottom",
@@ -126,9 +139,14 @@ export const Graph = () => {
         ></XAxis>
         <YAxis
           tick={{ fill: "#FFFFFF" }}
-          width={120}
+          width={150}
+          style={{
+            fontSize: 18, 
+          }}
           label={{
+            fontSize: 20, 
             fill: "#FFFFFF",
+            offset: 10,
             value: "Температура U(r, t)",
             angle: -90,
           }}
@@ -136,6 +154,7 @@ export const Graph = () => {
         <Tooltip></Tooltip>
         <Legend
           wrapperStyle={{
+            fontSize: 20, 
             paddingTop: "40px",
           }}
         ></Legend>
