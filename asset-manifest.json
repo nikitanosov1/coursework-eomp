@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/coursework-eomp/static/css/main.7a485edc.css",
-    "main.js": "/coursework-eomp/static/js/main.17d92d4c.js",
+    "main.js": "/coursework-eomp/static/js/main.c88a878e.js",
     "static/js/787.3440389a.chunk.js": "/coursework-eomp/static/js/787.3440389a.chunk.js",
     "static/media/bog.jpg": "/coursework-eomp/static/media/bog.7a6a21eab53ed0bd1271.jpg",
     "static/media/lens.png": "/coursework-eomp/static/media/lens.c51a8bfc91f1b9afa865.png",
@@ -9,11 +9,11 @@
     "static/media/condition.png": "/coursework-eomp/static/media/condition.26e3bf9d9327fdc15177.png",
     "index.html": "/coursework-eomp/index.html",
     "main.7a485edc.css.map": "/coursework-eomp/static/css/main.7a485edc.css.map",
-    "main.17d92d4c.js.map": "/coursework-eomp/static/js/main.17d92d4c.js.map",
+    "main.c88a878e.js.map": "/coursework-eomp/static/js/main.c88a878e.js.map",
     "787.3440389a.chunk.js.map": "/coursework-eomp/static/js/787.3440389a.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.7a485edc.css",
-    "static/js/main.17d92d4c.js"
+    "static/js/main.c88a878e.js"
   ]
 }
