@@ -1074,72 +1074,58 @@ export const startCalculate = (params) => {
     t += T / (countX - 1);
   }
   // test(0, 1);
-  // test(0, 1);
-  // test3(0, 1);
 };
 
-const test2 = () => {
+const printAllB = () => {
   for (let i = 0; i <= 100; ++i) {
     console.log(`при i = ${i} B(i)=${B(i)}`);
   }
 };
-const test3 = (r, t) => {
-  let result = 0;
-  for (let i = 0; i <= n; i++) {
-    const lambda = λ(i);
-    result +=
-      ((B(i) * (Math.pow(Math.E, (lambda * t) / c) - 1)) / lambda) *
-      J_n((μ[i] * r) / R, 0);
-    console.log(`${i} членов ряда U(${r}, ${t}) = ${result}`);
-  }
-  return result;
-};
 
 const test = (r, t) => {
-  // let f1 = true;
-  // let f2 = true;
-  // let f3 = true;
-  // let f4 = true;
-  // let f5 = true;
-  // let f6 = true;
-  // let f7 = true;
-  // for (let i = 1; i <= 10000; i++) {
-  //   //console.log(Ф(i));
-  //   if (Ф(i) <= 0.1 && f1) {
-  //     console.log(`f1 ${i}`);
-  //     f1 = false;
-  //   }
-  //   if (Ф(i) <= 0.01 && f2) {
-  //     console.log(`f2 ${i}`);
-  //     f2 = false;
-  //   }
-  //   if (Ф(i) <= 0.001 && f3) {
-  //     console.log(i);
-  //     f3 = false;
-  //   }
-  //   if (Ф(i) <= 0.0001 && f4) {
-  //     console.log(i);
-  //     f4 = false;
-  //   }
-  //   if (Ф(i) <= 0.00001 && f5) {
-  //     console.log(i);
-  //     f5 = false;
-  //   }
-  //   if (Ф(i) <= 0.000001 && f6) {
-  //     console.log(i);
-  //     f6 = false;
-  //   }
-  //   if (Ф(i) <= 0.0000001 && f7) {
-  //     console.log(i);
-  //     f7 = false;
-  //   }
-  // }
+  let f1 = true;
+  let f2 = true;
+  let f3 = true;
+  let f4 = true;
+  let f5 = true;
+  let f6 = true;
+  let f7 = true;
+  for (let i = 1; i <= 3000; i++) {
+    if (Ф(i) <= 0.1 && f1) {
+      console.log(`f1 ${i}`);
+      f1 = false;
+    }
+    if (Ф(i) <= 0.01 && f2) {
+      console.log(`f2 ${i}`);
+      f2 = false;
+    }
+    if (Ф(i) <= 0.001 && f3) {
+      console.log(`f3 ${i}`);
+      f3 = false;
+    }
+    if (Ф(i) <= 0.0001 && f4) {
+      console.log(`f4 ${i}`);
+      f4 = false;
+    }
+    if (Ф(i) <= 0.00001 && f5) {
+      console.log(`f5 ${i}`);
+      f5 = false;
+    }
+    if (Ф(i) <= 0.000001 && f6) {
+      console.log(`f6 ${i}`);
+      f6 = false;
+    }
+    if (Ф(i) <= 0.0000001 && f7) {
+      console.log(`f7 ${i}`);
+      f7 = false;
+    }
+  }
 
-  let epss = 0.001;
-  let teorN = 1000;
+  const teorN = 7;
+  const epss = 0.001;
 
   let result = 0;
-  for (let i = 0; i <= teorN; i++) {
+  for (let i = 1; i <= teorN; i++) {
     const lambda = λ(i);
     const temp =
       ((B(i) * (Math.pow(Math.E, (lambda * t) / c) - 1)) / lambda) *
@@ -1148,89 +1134,19 @@ const test = (r, t) => {
   }
 
   let ideal = result;
-  for (let i = teorN; i >= 0; i--) {
+  for (let i = teorN; i > 0; i--) {
     const lambda = λ(i);
     const temp =
       ((B(i) * (Math.pow(Math.E, (lambda * t) / c) - 1)) / lambda) *
       J_n((μ[i] * r) / R, 0);
     result -= temp;
 
-    // console.log(`qqwqw  ${Math.abs(prevResult - result)}`);
-    if (Math.abs(ideal - result) > epss) {
-      console.log(`Для e=${epss} и Nтеор=${teorN} Nэкс = ${i + 1}`);
+    if (Math.abs(result - ideal) > epss) {
+      console.log(`Для e=${epss} Nэкс = ${i + 1}`);
       break;
     }
   }
-
-  // ------------------------
-
-  // let f1 = true;
-  // let f2 = true;
-  // let f3 = true;
-  // let f4 = true;
-  // let f5 = true;
-  // let f6 = true;
-  // let f7 = true;
-  // for (let i = 1; i <= 3000000; i++) {
-  //   //console.log(Ф(i));
-  //   if (Ф(i) <= 0.1 && f1) {
-  //     console.log(`f1 ${i}`);
-  //     f1 = false;
-  //   }
-  //   if (Ф(i) <= 0.01 && f2) {
-  //     console.log(`f2 ${i}`);
-  //     f2 = false;
-  //   }
-  //   if (Ф(i) <= 0.001 && f3) {
-  //     console.log(`f3 ${i}`);
-  //     f3 = false;
-  //   }
-  //   if (Ф(i) <= 0.0001 && f4) {
-  //     console.log(`f4 ${i}`);
-  //     f4 = false;
-  //   }
-  //   if (Ф(i) <= 0.00001 && f5) {
-  //     console.log(`f5 ${i}`);
-  //     f5 = false;
-  //   }
-  //   if (Ф(i) <= 0.000001 && f6) {
-  //     console.log(`f6 ${i}`);
-  //     f6 = false;
-  //   }
-  //   if (Ф(i) <= 0.0000001 && f7) {
-  //     console.log(`f7 ${i}`);
-  //     f7 = false;
-  //   }
-  // }
-
-  // const teorN = 7;
-  // const epss = 0.001;
-
-  // let result = 0;
-  // for (let i = 1; i <= teorN; i++) {
-  //   const lambda = λ(i);
-  //   const temp =
-  //     ((B(i) * (Math.pow(Math.E, (lambda * t) / c) - 1)) / lambda) *
-  //     J_n((μ[i] * r) / R, 0);
-  //   result += temp;
-  // }
-
-  // let ideal = result;
-  // for (let i = teorN; i > 0; i--) {
-  //   const lambda = λ(i);
-  //   const temp =
-  //     ((B(i) * (Math.pow(Math.E, (lambda * t) / c) - 1)) / lambda) *
-  //     J_n((μ[i] * r) / R, 0);
-  //   result -= temp;
-
-  //   // console.log(`qqwqw  ${Math.abs(prevResult - result)}`);
-  //   if (Math.abs(result - ideal) > epss) {
-  //     console.log(`Для e=${epss}   Nэкс = ${i + 1}`);
-  //     break;
-  //   }
-  // }
-
-  //return result;
+  return result;
 };
 
 const Ф = (N) => {
@@ -1239,6 +1155,8 @@ const Ф = (N) => {
 
 const J_n = (x, N) => {
   return besselj(x, N);
+
+  // Это если хотите сами J_n искать, а не использовать бибилиотеку
   // let result = 0;
   // for (let k = 0; k < n; k++) {
   //   let temp = Math.pow(-1, k) * Math.pow(x / 2, 2 * k);
@@ -1271,10 +1189,6 @@ const B = (i) => {
     (R * Math.pow(J_n(μ[i], 0), 2) * μ[i])
   );
 };
-
-// const B = (i) => {
-//   return (60 * β * J_n((μ[i] * 0.2) / R, 1) * Math.PI) / R;
-// };
 
 const U = (r, t) => {
   let result = 0;
